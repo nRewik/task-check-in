@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		1EB184BC253945BD00156521 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC7A630868F70D37026FC75 /* Pods.framework */; };
 		A00F8D911C2938C100E6FC91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8D901C2938C100E6FC91 /* AppDelegate.swift */; };
-		A00F8D931C2938C100E6FC91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8D921C2938C100E6FC91 /* ViewController.swift */; };
 		A00F8D961C2938C100E6FC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00F8D941C2938C100E6FC91 /* Main.storyboard */; };
 		A00F8D981C2938C100E6FC91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00F8D971C2938C100E6FC91 /* Assets.xcassets */; };
 		A00F8D9B1C2938C100E6FC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00F8D991C2938C100E6FC91 /* LaunchScreen.storyboard */; };
+		A00F8DA41C293BA600E6FC91 /* Foursquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DA31C293BA600E6FC91 /* Foursquare.swift */; };
+		A00F8DA61C293C1000E6FC91 /* FoursquareRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DA51C293C1000E6FC91 /* FoursquareRouter.swift */; };
+		A00F8DA91C293DE800E6FC91 /* Alamofire.Request+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DA81C293DE800E6FC91 /* Alamofire.Request+Future.swift */; };
+		A00F8DAB1C29403000E6FC91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DAA1C29403000E6FC91 /* LoginViewController.swift */; };
+		A00F8DAD1C29454900E6FC91 /* NSURLComponents+Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DAC1C29454900E6FC91 /* NSURLComponents+Params.swift */; };
+		A00F8DAF1C29483F00E6FC91 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DAE1C29483F00E6FC91 /* UserStore.swift */; };
+		A00F8DB31C294C0800E6FC91 /* LocaltionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DB21C294C0800E6FC91 /* LocaltionTableViewController.swift */; };
+		A00F8DB61C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DB51C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift */; };
+		A00F8DB81C29584A00E6FC91 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F8DB71C29584A00E6FC91 /* Venue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +29,19 @@
 		5A7FB9A018D30C3FD3203936 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A00F8D8D1C2938C100E6FC91 /* Task Check-in.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Check-in.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00F8D901C2938C100E6FC91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A00F8D921C2938C100E6FC91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A00F8D951C2938C100E6FC91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A00F8D971C2938C100E6FC91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00F8D9A1C2938C100E6FC91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A00F8D9C1C2938C100E6FC91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00F8DA31C293BA600E6FC91 /* Foursquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foursquare.swift; sourceTree = "<group>"; };
+		A00F8DA51C293C1000E6FC91 /* FoursquareRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareRouter.swift; sourceTree = "<group>"; };
+		A00F8DA81C293DE800E6FC91 /* Alamofire.Request+Future.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire.Request+Future.swift"; sourceTree = "<group>"; };
+		A00F8DAA1C29403000E6FC91 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A00F8DAC1C29454900E6FC91 /* NSURLComponents+Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLComponents+Params.swift"; sourceTree = "<group>"; };
+		A00F8DAE1C29483F00E6FC91 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		A00F8DB21C294C0800E6FC91 /* LocaltionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocaltionTableViewController.swift; sourceTree = "<group>"; };
+		A00F8DB51C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocaltionTableViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		A00F8DB71C29584A00E6FC91 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				A00F8D8F1C2938C100E6FC91 /* Task Check-in */,
+				A00F8DA71C293DCB00E6FC91 /* Extensions */,
 				A00F8D8E1C2938C100E6FC91 /* Products */,
 				8B76E375A91C158A9F562F4A /* Pods */,
 				002FB263CDD0ECEB67B3BED7 /* Frameworks */,
@@ -78,14 +95,62 @@
 		A00F8D8F1C2938C100E6FC91 /* Task Check-in */ = {
 			isa = PBXGroup;
 			children = (
+				A00F8DB91C29585100E6FC91 /* Model */,
+				A00F8DA21C293B8A00E6FC91 /* Foursquare */,
+				A00F8DBA1C295DC600E6FC91 /* Store */,
 				A00F8D901C2938C100E6FC91 /* AppDelegate.swift */,
-				A00F8D921C2938C100E6FC91 /* ViewController.swift */,
+				A00F8DAA1C29403000E6FC91 /* LoginViewController.swift */,
+				A00F8DB41C294C8100E6FC91 /* LocaltionTableViewController */,
 				A00F8D941C2938C100E6FC91 /* Main.storyboard */,
 				A00F8D971C2938C100E6FC91 /* Assets.xcassets */,
 				A00F8D991C2938C100E6FC91 /* LaunchScreen.storyboard */,
 				A00F8D9C1C2938C100E6FC91 /* Info.plist */,
 			);
 			path = "Task Check-in";
+			sourceTree = "<group>";
+		};
+		A00F8DA21C293B8A00E6FC91 /* Foursquare */ = {
+			isa = PBXGroup;
+			children = (
+				A00F8DA31C293BA600E6FC91 /* Foursquare.swift */,
+				A00F8DA51C293C1000E6FC91 /* FoursquareRouter.swift */,
+			);
+			name = Foursquare;
+			sourceTree = "<group>";
+		};
+		A00F8DA71C293DCB00E6FC91 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A00F8DA81C293DE800E6FC91 /* Alamofire.Request+Future.swift */,
+				A00F8DAC1C29454900E6FC91 /* NSURLComponents+Params.swift */,
+			);
+			name = Extensions;
+			path = "Task Check-in";
+			sourceTree = "<group>";
+		};
+		A00F8DB41C294C8100E6FC91 /* LocaltionTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A00F8DB21C294C0800E6FC91 /* LocaltionTableViewController.swift */,
+				A00F8DB51C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift */,
+			);
+			name = LocaltionTableViewController;
+			sourceTree = "<group>";
+		};
+		A00F8DB91C29585100E6FC91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A00F8DB71C29584A00E6FC91 /* Venue.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A00F8DBA1C295DC600E6FC91 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				A00F8DAE1C29483F00E6FC91 /* UserStore.swift */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00F8D931C2938C100E6FC91 /* ViewController.swift in Sources */,
+				A00F8DAB1C29403000E6FC91 /* LoginViewController.swift in Sources */,
+				A00F8DB31C294C0800E6FC91 /* LocaltionTableViewController.swift in Sources */,
+				A00F8DAD1C29454900E6FC91 /* NSURLComponents+Params.swift in Sources */,
+				A00F8DB81C29584A00E6FC91 /* Venue.swift in Sources */,
+				A00F8DA91C293DE800E6FC91 /* Alamofire.Request+Future.swift in Sources */,
+				A00F8DA41C293BA600E6FC91 /* Foursquare.swift in Sources */,
 				A00F8D911C2938C100E6FC91 /* AppDelegate.swift in Sources */,
+				A00F8DAF1C29483F00E6FC91 /* UserStore.swift in Sources */,
+				A00F8DA61C293C1000E6FC91 /* FoursquareRouter.swift in Sources */,
+				A00F8DB61C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
