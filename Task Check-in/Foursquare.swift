@@ -14,9 +14,9 @@ import FutureKit
 class Foursquare{
     
     static let serverURL = "https://foursquare.com"
-    static let clientID = "😁" /* don't reveal this to anybody */
-    static let clientSecret = "😁" /* don't reveal this to anybody */
-    static let redirectURI = "😁" /* don't reveal this to anybody */
+    static let clientID = "KYAMZDRGQV2VF00S22T1BPOGQJF00GUDEIP2V1RMZ0Q5NJTK" /* don't reveal this to anybody */
+    static let clientSecret = "ULCUMTHUUF3J3V5RKVQ0WPMCJMCX43M1YCEEKUBBRDWEBOWL" /* don't reveal this to anybody */
+    static let redirectURI = "https://nrewik.github.io/task-check-in/redirect" /* don't reveal this to anybody */
     
     static let baseAPIurl = "https://api.foursquare.com/v2"
     static let apiVersion = "20140806"
@@ -52,9 +52,12 @@ class Foursquare{
         }
     }
     
-    func responseFromRoute<T: FoursquareRouter>(router: T, accessToken token: String) -> Future<JSON>{
-        let mainRouter = Router.FoursquareRoute(router: router, token: token)
-        let request = Alamofire.request(mainRouter)
+    /// fire the request from any FoursquareRoute
+    /// - returns: JSON response from foursquare api.
+    
+    func responseFromRoute<T: FoursquareRoute>(route: T, accessToken token: String) -> Future<JSON>{
+        let router = FoursquareRouter.foursquareRoute(route: route, token: token)
+        let request = Alamofire.request(router)
         return request.responseJSONPromise()
     }
     

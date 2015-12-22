@@ -11,11 +11,29 @@ import SwiftyJSON
 
 struct Venue {
     
+    /// A unique string identifier for this venue.
     var id: String = ""
+    
+    /// The best known name for this venue.
     var name: String = ""
+    
+    /// Description of the venue provided by venue owner.
+    var description: String = ""
+    
+    /// An array of string tags applied to this venue.
+    var tags: [String] = []
+    
+    // This is just for a demonstration.
+    // We can add more properties here, for example,
+    // var mayor: User = ...
+    // var beenHere: Int = ...
+    // The list can be found at https://developer.foursquare.com/docs/responses/venue
     
     init(json: JSON){
         id = json["id"].stringValue
         name = json["name"].stringValue
+        description = json["description"].stringValue
+        tags = json["tags"].map{ key, value in value.stringValue }
     }
 }
+

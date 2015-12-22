@@ -17,21 +17,21 @@ extension LocaltionTableViewController: CLLocationManagerDelegate{
         guard !requestingNewVenue else { return }
         
         guard let location = locations.first else { return }
-        print(location)
         
         let latitude = "\(location.coordinate.latitude)"
         let longitude = "\(location.coordinate.longitude)"
 
-        let route = VenueRouter.Search(latitude: latitude, longitude: longitude, radius: discoverRadius)
+        let route = VenueRoute.Search(latitude: latitude, longitude: longitude, radius: discoverRadius)
         
         requestingNewVenue = true /* lock new request */
+        
         fousquare
             .responseFromRoute(route, accessToken: UserStore.defaultStore.currentUserToken)
             .onComplete{ result in
                 switch result {
                 case let .Success(json):
                     
-                    // print(json)
+                    // This json contains the list of compacted version of venues.
                     
                     let newVenues = json["response"]["venues"].map{ index, venueJSON in
                         return Venue(json: venueJSON)

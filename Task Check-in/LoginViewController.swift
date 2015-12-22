@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     let foursquare = Foursquare()
     let webView = WKWebView()
     
+    let customRedirectURI = "https://nrewik.github.io/task-check-in/redirect"
+    
     @IBOutlet weak var webViewReferenceView: UIView!
     
     override func viewDidLoad() {
@@ -24,23 +26,29 @@ class LoginViewController: UIViewController {
         webViewReferenceView.addSubview(webView)
         webView.navigationDelegate = self
         
-        /* navigate to foursquare authentication page */
-        let oauthURL = Foursquare.serverURL + "/oauth2/authenticate"
-        
-        var params: [String:AnyObject] = [:]
-        params["client_id"] = Foursquare.clientID
-        params["response_type"] = "code"
-        params["redirect_uri"] = "https://nrewik.github.io/task-check-in/redirect"
-        
-        let request = Alamofire.request(.GET, oauthURL, parameters: params)
-        
-        webView.loadRequest(request.request!)
+        navigateToFoursquareAuthenticationPage()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = webViewReferenceView.bounds
     }
+    
+    
+    func navigateToFoursquareAuthenticationPage(){
+        
+        let oauthURL = Foursquare.serverURL + "/oauth2/authenticate"
+        
+        var params: [String:AnyObject] = [:]
+        params["client_id"] = Foursquare.clientID
+        params["response_type"] = "code"
+        params["redirect_uri"] = customRedirectURI
+        
+        let request = Alamofire.request(.GET, oauthURL, parameters: params)
+        
+        webView.loadRequest(request.request!)
+    }
+    
     
 }
 
@@ -53,14 +61,18 @@ extension LoginViewController: WKNavigationDelegate{
             then find `code` params within redirect url.
             Otherwise just ignore.
         */
-        if let url = navigationResponse.response.URL, components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
+        
+        if let
+            url = navigationResponse.response.URL,
+            components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
         {
+            
             let params = components.params
             if let _code = params["code"], code = _code{
                 
                 print("code \(code)")
                 
-                /* request for access token, after getting code */
+                /* request for access token, after found code */
                 foursquare
                     .getToken(code)
                     .onSuccess{ token in
