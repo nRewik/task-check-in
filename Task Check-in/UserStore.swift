@@ -14,5 +14,5 @@ class UserStore{
     private init(){ }
     
     /// stored session token
-    var currentUserToken = ""
+    var currentUserToken: String?
 }

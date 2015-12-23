@@ -55,7 +55,7 @@ class Foursquare{
     /// fire the request from any FoursquareRoute
     /// - returns: JSON response from foursquare api.
     
-    func responseFromRoute<T: FoursquareRoute>(route: T, accessToken token: String) -> Future<JSON>{
+    func responseFromRoute<T: FoursquareRoute>(route: T, accessToken token: String? = nil) -> Future<JSON>{
         let router = FoursquareRouter.foursquareRoute(route: route, token: token)
         let request = Alamofire.request(router)
         return request.responseJSONPromise()

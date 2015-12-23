@@ -12,7 +12,7 @@ import Alamofire
 // MARK: - Router
 enum FoursquareRouter: URLRequestConvertible{
     
-    case foursquareRoute( route: FoursquareRoute, token: String)
+    case foursquareRoute( route: FoursquareRoute, token: String?)
     
     var URLRequest: NSMutableURLRequest{
         
@@ -25,7 +25,18 @@ enum FoursquareRouter: URLRequestConvertible{
             mutableURLRequest.HTTPMethod = route.method.rawValue
             
             var params = route.parameters
-            params["oauth_token"] = token
+            
+            if let token = token{
+                /* 
+                    Access token use for user authentication.
+                    Some endpoints will give more personalized answer based on user actor.
+                */
+                params["oauth_token"] = token
+            }else{
+                /* userless access */
+                params["client_id"] = Foursquare.clientID
+                params["client_secret"] = Foursquare.clientSecret
+            }
             
             params["v"] = Foursquare.apiVersion // version
             params["m"] = Foursquare.apiMode // mode
