@@ -19,6 +19,7 @@ class VenueDetailViewController: UIViewController {
     var venue: Venue?{
         didSet{
             guard let venue = venue else { return }
+            title = venue.name
             showTextFromVenue(venue)
         }
     }
@@ -57,12 +58,9 @@ class VenueDetailViewController: UIViewController {
         textToShow += "Name: \(venue.name)\n\n"
         textToShow += "Description: \(venue.description)\n\n"
         textToShow += "Tags: " + venue.tags.joinWithSeparator(", ") + "\n\n"
+        textToShow += "Short URL: \(venue.shortUrl)\n\n"
         textView.text = textToShow
     }
-    
-    
-    
-    
     
     
 }
