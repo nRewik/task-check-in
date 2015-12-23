@@ -26,6 +26,8 @@ struct Venue {
     /// A short URL for this venue, e.g. http://4sq.com/Ab123D
     var shortUrl: String = ""
     
+    var photoURLString: String?
+    
     // This is just for a demonstration.
     // We can add more properties here, for example,
     // var mayor: User = ...
@@ -38,6 +40,28 @@ struct Venue {
         description = json["description"].stringValue
         tags = json["tags"].map{ key, value in value.stringValue }
         shortUrl = json["shortUrl"].stringValue
+        
+        if let
+            (_,groupJSON) = json["photos"]["groups"].first,
+            (_,photoJSON) = groupJSON["items"].first
+        {
+            
+            let prefix = photoJSON["prefix"].stringValue
+            let suffix = photoJSON["suffix"].stringValue
+            
+            photoURLString = prefix + "original" + suffix
+        }
+        
     }
+    
+    
+    /// A url of venue's photo.
+    var photoUrl: NSURL?{
+        guard let photoURLString = photoURLString else { return nil }
+        return NSURL(string: photoURLString)
+    }
+    
 }
+
+
 
