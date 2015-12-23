@@ -19,7 +19,7 @@ extension LocaltionTableViewController: UISearchResultsUpdating{
         let latitude = mostRecentLocation.coordinate.latitude
         let longitude = mostRecentLocation.coordinate.longitude
         
-        let route = VenueRoute.Search(latitude: latitude, longitude: longitude, radius: discoverRadius,query: searchText)
+        let route = VenueRoute.Explore(latitude: latitude, longitude: longitude, radius: discoverRadius,query: searchText)
         
         fousquare
             .responseFromRoute(route, accessToken: UserStore.defaultStore.currentUserToken)
@@ -28,8 +28,9 @@ extension LocaltionTableViewController: UISearchResultsUpdating{
                 case let .Success(json):
                     
                     // This json contains the list of compacted version of venues.
-                    let newVenues = json["response"]["venues"].map{ index, venueJSON in
-                        return Venue(json: venueJSON)
+                    
+                    let newVenues = json["response"]["groups"][0]["items"].map{ index, itemJSON in
+                        return Venue(json: itemJSON["venue"])
                     }
                     
                     self.searchVenues = newVenues

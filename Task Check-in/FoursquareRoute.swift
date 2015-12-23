@@ -25,10 +25,11 @@ enum VenueRoute: FoursquareRoute{
     
     case Get(venueID: String)
     case Search(latitude: Double, longitude: Double, radius: Double, query: String?)
+    case Explore(latitude: Double, longitude: Double, radius: Double, query: String?)
     
     var method: Alamofire.Method {
         switch self {
-        case .Get, .Search:
+        case .Get, .Search, .Explore:
             return .GET
         }
     }
@@ -39,6 +40,8 @@ enum VenueRoute: FoursquareRoute{
             return "/venues/\(venueID)"
         case .Search:
             return "/venues/search"
+        case .Explore:
+            return "/venues/explore"
         }
     }
     
@@ -51,6 +54,14 @@ enum VenueRoute: FoursquareRoute{
             break
         case let .Search(latitude: latitude, longitude: longitude, radius: radius, query: query):
             params["intent"] = "checkin" // find places around the location that user likely to check-in
+            
+            params["ll"] = "\(latitude),\(longitude)"
+            params["radius"] = "\(radius)"
+            
+            if let query = query{
+                params["query"] = query
+            }
+        case let .Explore(latitude: latitude, longitude: longitude, radius: radius, query: query):
             
             params["ll"] = "\(latitude),\(longitude)"
             params["radius"] = "\(radius)"

@@ -19,7 +19,7 @@ extension LocaltionTableViewController: CLLocationManagerDelegate{
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
 
-        let route = VenueRoute.Search(latitude: latitude, longitude: longitude, radius: discoverRadius, query: nil)
+        let route = VenueRoute.Explore(latitude: latitude, longitude: longitude, radius: discoverRadius, query: nil)
         
         fousquare
             .responseFromRoute(route, accessToken: UserStore.defaultStore.currentUserToken)
@@ -29,8 +29,8 @@ extension LocaltionTableViewController: CLLocationManagerDelegate{
                     
                     // This json contains the list of compacted version of venues.
                     
-                    let newVenues = json["response"]["venues"].map{ index, venueJSON in
-                        return Venue(json: venueJSON)
+                    let newVenues = json["response"]["groups"][0]["items"].map{ index, itemJSON in
+                        return Venue(json: itemJSON["venue"])
                     }
                     
                     self.nearbyVenues = newVenues
