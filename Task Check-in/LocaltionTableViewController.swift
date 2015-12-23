@@ -13,31 +13,51 @@ class LocaltionTableViewController: UITableViewController {
 
     let fousquare = Foursquare()
     let locationManager = CLLocationManager()
+    let searchController = UISearchController(searchResultsController: nil)
     
     /// range that vanue will be searched.
-    let discoverRadius = 250 // Km.
+    let discoverRadius = 750.0 // Metres
     
     
     // ------------------------------------------------------------
     // MARK: - States
-    
-    var requestingNewVenue = false
-    
-    var venues: [Venue] = []{
+        
+    var searching = false{
         didSet{
             tableView.reloadData()
         }
     }
+    
+    var nearbyVenues: [Venue] = []
+    var searchVenues: [Venue] = []
     // ------------------------------------------------------------
 
     
+    
+    
+    // ------------------------------------------------------------
+    // MARK: - Computed Properties
+    
+    var venuesToShow: [Venue]{
+        return searching ? searchVenues : nearbyVenues
+    }
+    
+    // ------------------------------------------------------------
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        definesPresentationContext = true
+        
+        setupSearchController()
         
         locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.startUpdatingLocation()        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,11 +66,23 @@ class LocaltionTableViewController: UITableViewController {
             
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)!
-            let selectedVenue = venues[indexPath.row]
+            let selectedVenue = venuesToShow[indexPath.row]
             
             let venueDetailVC = segue.destinationViewController as! VenueDetailViewController
             venueDetailVC.venueID = selectedVenue.id
         }
+    }
+    
+    func setupSearchController(){
+        
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
+        
+        searchController.searchBar.sizeToFit()
+        
+        tableView.tableHeaderView = searchController.searchBar
     }
 
     // MARK: - Table view data source
@@ -60,7 +92,7 @@ class LocaltionTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return venues.count
+        return venuesToShow.count
     }
 
     
@@ -68,9 +100,9 @@ class LocaltionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
         
         // Configure the cell...
-        cell.textLabel?.text = venues[indexPath.row].name
+        cell.textLabel?.text = venuesToShow[indexPath.row].name
         
         return cell
     }
-
+    
 }

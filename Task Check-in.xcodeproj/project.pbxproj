@@ -24,6 +24,8 @@
 		A0514C5D1C299F4E00B1FE6E /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0514C5C1C299F4E00B1FE6E /* VenueDetailViewController.swift */; };
 		A0514C5F1C29AF1700B1FE6E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0514C5E1C29AF1700B1FE6E /* Route.swift */; };
 		A0514C611C29AF2A00B1FE6E /* FoursquareRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0514C601C29AF2A00B1FE6E /* FoursquareRoute.swift */; };
+		A07212B21C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07212B11C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift */; };
+		A07212B41C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07212B31C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		A0514C5C1C299F4E00B1FE6E /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		A0514C5E1C29AF1700B1FE6E /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		A0514C601C29AF2A00B1FE6E /* FoursquareRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareRoute.swift; sourceTree = "<group>"; };
+		A07212B11C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocaltionTableViewController+UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
+		A07212B31C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocaltionTableViewController+UISearchControllerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			children = (
 				A00F8DB21C294C0800E6FC91 /* LocaltionTableViewController.swift */,
 				A00F8DB51C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift */,
+				A07212B31C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift */,
+				A07212B11C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift */,
 			);
 			name = LocaltionTableViewController;
 			sourceTree = "<group>";
@@ -308,9 +314,11 @@
 				A00F8DB81C29584A00E6FC91 /* Venue.swift in Sources */,
 				A00F8DA91C293DE800E6FC91 /* Alamofire.Request+Future.swift in Sources */,
 				A00F8DA41C293BA600E6FC91 /* Foursquare.swift in Sources */,
+				A07212B21C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift in Sources */,
 				A00F8D911C2938C100E6FC91 /* AppDelegate.swift in Sources */,
 				A00F8DAF1C29483F00E6FC91 /* UserStore.swift in Sources */,
 				A0514C5F1C29AF1700B1FE6E /* Route.swift in Sources */,
+				A07212B41C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift in Sources */,
 				A00F8DA61C293C1000E6FC91 /* FoursquareRouter.swift in Sources */,
 				A00F8DB61C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift in Sources */,
 			);
