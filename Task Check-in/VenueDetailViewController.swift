@@ -16,28 +16,22 @@ class VenueDetailViewController: UIViewController {
     // ------------------------------------------------------------
     // MARK: - States
     
-    var venue: Venue?{
+    var venueViewModel: VenueViewModel?{
         didSet{
-            guard let venue = venue else { return }
             
-            title = venue.name
-            
-            if let photoUrl = venue.photoUrl{
-                fetchVenuePhoto(url: photoUrl)
+            if let venueViewModel = venueViewModel{
+                
+                title = venueViewModel.name
+                
+                if let photoUrl = venueViewModel.photoUrl{
+                    fetchVenuePhoto(url: photoUrl)
+                }
             }
             
-            let titles = ["ID","Name","Description","Tags"]
-            let details = [venue.id, venue.name, venue.description, venue.tags.joinWithSeparator(", ")]
-            
-            itemsToShow = zip(titles, details).map{ (title: $0, detail: $1 ) }
-        }
-    }
-    
-    var itemsToShow: [ (title: String, detail: String ) ] = []{
-        didSet{
             tableView.reloadData()
         }
     }
+    
     // ------------------------------------------------------------
     // MARK: -
 
@@ -63,7 +57,9 @@ class VenueDetailViewController: UIViewController {
         foursquare
             .responseFromRoute(route, accessToken: UserStore.defaultStore.currentUserToken)
             .onSuccess{ json in
-                self.venue = Venue(json: json["response"]["venue"])
+                
+                let venue = Venue(json: json["response"]["venue"])
+                self.venueViewModel = VenueViewModel(venue: venue)
             }
             .onFail{ error in
                 print("can't get venue detail: \(error)")

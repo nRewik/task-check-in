@@ -28,6 +28,7 @@
 		A0514C681C2ADEDB00B1FE6E /* VenueDetailViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0514C671C2ADEDB00B1FE6E /* VenueDetailViewController+UITableViewDataSource.swift */; };
 		A07212B21C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07212B11C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift */; };
 		A07212B41C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07212B31C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift */; };
+		A0C7B3141C2BF5D70024A254 /* VenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C7B3131C2BF5D70024A254 /* VenueViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		A0514C671C2ADEDB00B1FE6E /* VenueDetailViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VenueDetailViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		A07212B11C2A394A0065A77A /* LocaltionTableViewController+UISearchResultsUpdating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocaltionTableViewController+UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
 		A07212B31C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocaltionTableViewController+UISearchControllerDelegate.swift"; sourceTree = "<group>"; };
+		A0C7B3131C2BF5D70024A254 /* VenueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		A00F8D8F1C2938C100E6FC91 /* Task Check-in */ = {
 			isa = PBXGroup;
 			children = (
+				A0C7B3121C2BF5C30024A254 /* ViewModel */,
 				A00F8DB91C29585100E6FC91 /* Model */,
 				A00F8DA21C293B8A00E6FC91 /* Foursquare */,
 				A00F8DBA1C295DC600E6FC91 /* Store */,
@@ -196,6 +199,14 @@
 				A0514C671C2ADEDB00B1FE6E /* VenueDetailViewController+UITableViewDataSource.swift */,
 			);
 			name = VenueDetailViewController;
+			sourceTree = "<group>";
+		};
+		A0C7B3121C2BF5C30024A254 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0C7B3131C2BF5D70024A254 /* VenueViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				A0514C5F1C29AF1700B1FE6E /* Route.swift in Sources */,
 				A07212B41C2A3AA00065A77A /* LocaltionTableViewController+UISearchControllerDelegate.swift in Sources */,
 				A00F8DA61C293C1000E6FC91 /* FoursquareRouter.swift in Sources */,
+				A0C7B3141C2BF5D70024A254 /* VenueViewModel.swift in Sources */,
 				A00F8DB61C294C9800E6FC91 /* LocaltionTableViewController+CLLocationManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

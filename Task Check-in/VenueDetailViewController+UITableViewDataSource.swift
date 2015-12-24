@@ -14,8 +14,15 @@ extension VenueDetailViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell")!
         
-        let item = itemsToShow[indexPath.row]
-        cell.textLabel?.text = "\(item.title): \(item.detail)"
+        if let venueViewModel = venueViewModel
+        {
+            let item = venueViewModel.itemsToShow[indexPath.row]
+            cell.textLabel?.text = "\(item.title): \(item.detail)"
+            
+        }else{
+            cell.textLabel?.text = "Nothing 😅"
+        }
+
         
         return cell
     }
@@ -25,7 +32,7 @@ extension VenueDetailViewController: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsToShow.count
+        return venueViewModel?.itemsToShow.count ?? 0
     }
     
 }
